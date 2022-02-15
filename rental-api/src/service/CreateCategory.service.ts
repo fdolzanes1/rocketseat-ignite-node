@@ -1,5 +1,5 @@
-import { constructor } from "express";
 import { CategoriesRepository } from "../repositories/categories.repository";
+import { ICategoriesRepository } from "../repositories/Icategories.repository";
 
 interface IRequest {
 	name: string; 
@@ -7,7 +7,7 @@ interface IRequest {
 }
 
 class CreateCategoryService {
-  constructor(private categoriesRepository: CategoriesRepository) {}
+  constructor(private categoriesRepository: ICategoriesRepository) {}
 	
   execute({name, description}:IRequest) {
     const categoriesRepository = new CategoriesRepository();
